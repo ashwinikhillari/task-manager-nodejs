@@ -10,9 +10,12 @@ const {
 
 router.post("/tasks", createTask);
 
-router.get("/tasks/:id", getTaskById);
 
 router.get("/tasks", getAllTasks);
+
+router.get("/tasks/:id", getTaskById);
+
+
 
 router.put("/tasks/:id", updateTaskById);
 

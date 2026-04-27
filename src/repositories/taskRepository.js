@@ -11,11 +11,9 @@ const createTaskRepo = (setvalues) => {
 const getTaskByIdRepo = (id) => {
   return pool.query("SELECT * FROM tasks WHERE id = $1", [id]);
 };
-const getAllTasksRepo = (limit,offset) => {
-  return  pool.query(
-    "SELECT * FROM tasks ORDER BY id LIMIT $1 OFFSET $2",
-    [limit, offset]
-  );
+const getAllTasksRepo = async(query,setvalues) => {
+     console.log("Query  is getting ",query,setvalues)
+  return pool.query(query,setvalues);
 };
 const updateTaskByIdRepo = async (title, description, status, id) => {
   return pool.query(

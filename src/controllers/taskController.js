@@ -38,8 +38,9 @@ const getAllTasks = async (req, res) => {
   try {
     const result = await service.getAllTasksService(req);
     res.json(result);
-  } catch (err) {
-    res.status(500).json({ message: "Internal Server Error" });
+  } catch (error) {
+   const { status, message } = catchBlock(error);
+    return res.status(status).json({ message: message });
   }
 };
 const updateTaskById = async (req, res) => {
